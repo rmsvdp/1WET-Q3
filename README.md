@@ -13,7 +13,7 @@ para probarlos.
 
 ## Metodología :+1:
 
-La información que se proporciona, sirve sólo de guía para buscar y adquirir el conocimient.
+La información que se proporciona, sirve sólo de guía para buscar y adquirir el conocimiento.
 Cada sección contiene un pequeño resumen y enlaces, así como fragmentos de códigos de ejemplo
 La mecánica recomendada es :
 * acceder a los enlaces , leer con atención e reproducir los ejemplos (si es un tutorial)
@@ -23,11 +23,14 @@ La mecánica recomendada es :
 Para que esto sea realmente productivo, aprovecha la potencia del trabajo en equipo, forma grupos con 
 tus compañeros y entre todo id construyendo 
 
+## En capítulos anteriores :alien:
+
+En mi cuenta de gitHub hay proyectos operativos sobre ejemplos, ejercicios y utilidades, puedes usarlos libremente.
 
 ## Gestión de la información (ud9-gi) :rocket: 
 
-Al final, cualquier aplicación relevante maneja información de forma persistente, es decir, la información se crear, modifica y elimina 
-durante la ejecución de la aplicaicón, pero cuando esta termina, queda almacenada de alguna forma.
+Al final, cualquier aplicación relevante maneja información de forma persistente, es decir, la información se crea, modifica y elimina 
+durante la ejecución de la aplicaicón, pero cuando esta termina, debe quedar almacenada de alguna forma.
 
 En tiempo de ejecución , podemos adpotar una estrategia común a casi cualquier programa al que nos 
 enfrentemos:
@@ -49,8 +52,8 @@ Se trata de implementar un conjunto de métodos básicos para gestionar la infor
 - Listar/Buscar uno o varios elementos
 
 
-Como concepto una buena solución sería el crear un **interfaz** con los elementos básicos, y luego para
-cada clase realizar la implementación. Por ejemplo
+Como concepto una buena solución sería el crear un **interfaz** con los elementos básicos y luego para
+cada clase, realizar la implementación. Por ejemplo
 
 ```java8
 
@@ -62,14 +65,13 @@ public interface DAO{
     public ArrayList<Coche> getCoches(); // REcupero todos los coches almacenados
 }
 ```
-La idea es que las operaciones de añadir, eliminar y actualizar sean sobre un único objeto, para ello
-debemos utilizar un atributo (clave) que identifique de forma únivoca al objeto
+La idea es que las operaciones de añadir, eliminar y actualizar sean sobre un único objeto.
 La operación de obtener todos, nos servirá para cargar completamente una colección en memoria y 
 recorrerla y manipularla a nuestro gusto.
 
 **En la carpeta ud9-gi se encuentra un ejemplo de lo expuesto (sólo archivos java)**
 
-Aplica este concepto a diseños anteriores (electrodomésticos y bibliotecadigital), todavía quedará más claro el programa principal!!
+Aplica este concepto a diseños anteriores (electrodomésticos y biblioteca digital), todavía quedará más claro el programa principal!!
 
 ## Sistemas de archivos y manejo de ficheros (ud9-sa) :rocket:
 
