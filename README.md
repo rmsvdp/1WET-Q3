@@ -16,7 +16,7 @@ para probarlos.
 La información que se proporciona, sirve sólo de guía para buscar y adquirir el conocimiento.
 Cada sección contiene un pequeño resumen y enlaces, así como fragmentos de códigos de ejemplo
 La mecánica recomendada es :
-* acceder a los enlaces , leer con atención e reproducir los ejemplos (si es un tutorial)
+* acceder a los enlaces , leer con atención y reproducir los ejemplos (si es un tutorial)
 * Buscar otros enlaces de referencia y repetir el proceso
 * Revisar ejemplos o realizar ejercicios
 
