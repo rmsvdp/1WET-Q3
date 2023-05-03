@@ -131,8 +131,11 @@ El bloque try-catch tiene el siguiente formato:
 	}
 ```	
 Tanto para leer como para escribir utilizamos lo que en programación se llama un “manejador de fichero”. Es algo así como una variable que hace referencia al fichero con el que queremos trabajar.
+Se puede pasar la ruta del archivo o también un objeto FILE creado de la forma explicada con anterioridad.
 ```java8
-	BufferedReader bf = new BufferedReader(new FileReader("nombres.txt"));
+	BufferedReader bf = new BufferedReader(new FileReader("nombres.txt")); // opcion 1
+	BufferedReader bf = new BufferedReader(new FileReader(new FILE("nombres.txt"))); // opcion 2
+	
 ```
 El contenido del archivo, normalmente estará separado en líneas. Un línea queda definida por el carácter terminador de línea ‘\n’.
 Para leer una línea se utiliza el método **readLine()**. Devolverá todos los caracteres de la línea o  el valor null si hemos llegado al final del fichero.
@@ -147,9 +150,15 @@ Para poder escribir un fichero en Java, lo primero es importar las librerías qu
 	Import java.io.BufferedWriter;
 	import java.io.FileWriter;
 ```
-Después instanciamos un manejador para escribir
+Después instanciamos un manejador para escribir. Se puede pasar la ruta del archivo o también un objeto FILE creado de la forma explicada con anterioridad.
+Si hemos utilizado un objeto FILE para hacer operaciones con el fichero es más recomendable
 ```java8
-	BufferedWriter bfw = new BufferedWriter(new FileWriter("nombres.txt"));
+	FILE fi = new FILE("nombres.txt");
+	// operaciones con FI
+	BufferedWriter bfw = new BufferedWriter(new FileWriter("nombres.txt")); // opcion 1
+	BufferedWriter bfw = new BufferedWriter(new FileWriter(fi)); // opcion 2
+	
+	
 ```
 Todas las operaciones que se realicen sobre ficheros deberán estar incluidas en un bloque try-catch.
 Esto nos permitirá mostrar mensajes de error y terminar el programa de una forma ordenada en caso de que se produzca algún fallo (el fichero no existe, no tenemos permiso para acceder a él, etc.).
@@ -223,6 +232,7 @@ y cargamos todos su datos (líneas) en nuestra estructura de objetos.
 * Añadir una línea nueva al archivo con los datos del coche que queremos añadir
 * Buscar un coche, leyendo línea a linea y comparando campos hasta encontrarle.
 * Las operaciones de actualizar y eliminar quedarían en memoria hasta que terminásemos la aplicación, momento en el que generaríamos un archivo nuevo con los datos de la sesión. 
+<<<<<<< HEAD
 
 ## Manejo de Bases de Datos :rocket:
 
@@ -361,3 +371,5 @@ Existe muchísimas fuentes para ampliar conocimientos y mejorar el control de la
 * [JDBC Api oficial] (https://docs.oracle.com/javase/8/docs/api/java/sql/package-summary.html)
 
 * [JDBC Tutorial] (https://www.javatpoint.com/java-jdbc)
+=======
+>>>>>>> e2ad3fb29d708df91900f16f4f326af31ef9319d
