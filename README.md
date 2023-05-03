@@ -371,5 +371,4 @@ Existe muchísimas fuentes para ampliar conocimientos y mejorar el control de la
 * [JDBC Api oficial] (https://docs.oracle.com/javase/8/docs/api/java/sql/package-summary.html)
 
 * [JDBC Tutorial] (https://www.javatpoint.com/java-jdbc)
-=======
->>>>>>> e2ad3fb29d708df91900f16f4f326af31ef9319d
+
