@@ -232,7 +232,7 @@ y cargamos todos su datos (líneas) en nuestra estructura de objetos.
 * Añadir una línea nueva al archivo con los datos del coche que queremos añadir
 * Buscar un coche, leyendo línea a linea y comparando campos hasta encontrarle.
 * Las operaciones de actualizar y eliminar quedarían en memoria hasta que terminásemos la aplicación, momento en el que generaríamos un archivo nuevo con los datos de la sesión. 
-<<<<<<< HEAD
+
 
 ## Manejo de Bases de Datos :rocket:
 
@@ -368,7 +368,7 @@ conn.close();
 
 Existe muchísimas fuentes para ampliar conocimientos y mejorar el control de las bases de datos.
 
-* [JDBC Api oficial] (https://docs.oracle.com/javase/8/docs/api/java/sql/package-summary.html)
+* [JDBC Api oficial](https://docs.oracle.com/javase/8/docs/api/java/sql/package-summary.html)
 
-* [JDBC Tutorial] (https://www.javatpoint.com/java-jdbc)
+* [JDBC Tutorial](https://www.javatpoint.com/java-jdbc)
 
