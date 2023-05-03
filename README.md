@@ -223,3 +223,141 @@ y cargamos todos su datos (líneas) en nuestra estructura de objetos.
 * Añadir una línea nueva al archivo con los datos del coche que queremos añadir
 * Buscar un coche, leyendo línea a linea y comparando campos hasta encontrarle.
 * Las operaciones de actualizar y eliminar quedarían en memoria hasta que terminásemos la aplicación, momento en el que generaríamos un archivo nuevo con los datos de la sesión. 
+
+## Manejo de Bases de Datos :rocket:
+
+Desde un programa java se puede acceder a una base de datos y ejecutar cualquier sentencia que se
+ajuste al standard SQL.
+
+Java dispone de una serie de clases para conectarse, ejecutar sentencias sql y navegar en la información obtenida.
+Estas clases se conocen como conectores JDBC y proporcionan un interfaz común de acceso a la base de datos
+
+Los pasos para conectarse a cualquier base de datos que posea un conector JDBC son los siguientes:
+
+1. Identificar origen de datos y cargar el driver
+2. Crear objeto Connection
+3. Crear objeto Statement
+4. Ejectuar Sentencia
+5. Recuperar datos en objeto ResultSet
+5.   … Operar con los datos …
+6. Liberar Resulset
+7. Liberar Statement
+8. Liberar Connection
+
+
+### Conexión a la base de datos
+Para efectuar la conexión, cada base de datos dispone de una cadena de conexión específica.
+A continuación se muestran las cadenas de conexión a MySQL, Oracle y MariaDB:
+
+
+- **Mysql**: jdbc:mysql://hostname:puerto/ nombre_BaseDatos,<user>,<pwd>
+- **Oracle**: jdbc:oracle:thin:@hostname:puerto:Nombre_BaseDatos
+- **MariaDB**: Jdbc:mariadb://hostname:puerto/nombre_BaseDatos,<user>,<pwd>
+
+Los parámetros de conexión son los siguientes:
+
+- hostname: es la dirección IP del servidor SQL ( localhost, para un servidor local)
+- puerto: puerto de escucha del servicio de base de datos
+- user: Usuario con el que se accederá a la base d edatos
+- pwd: Contraseña de acceso
+
+
+```java8
+import java.sql.*;
+
+// PASOS 1,2: Conexión a un servidor local mySQL a la base de datos de empleados 
+// Siempre hay que encerrar las operaciones en una sentencia try-catch
+try{  
+	Class.forName("com.mysql.jdbc.Driver");   // Innecesario en la últimas versiones
+	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Personal","root","root");  
+	/*
+	*  Operaciones con la base de datos
+	*/
+	con.close();    // Cerrar conexión
+}catch(Exception e){ 
+	System.out.println(e);}  
+} 
+```
+
+
+### Objeto Statement
+
+Una vez conectados , definimos la sentencia sql dentro de un string y a traves del objeto Statement la ejecutamos
+
+
+```java8
+
+// PASO 3 : Construccion de la sentencia SQL , (Cualquier tipo de sentencia admitida por el lenguaje)
+
+Statement stmt=con.createStatement();  
+String ssql1 = "SELECT * FROM empleado";
+String ssql2 = "DELETE FROM productos WHERE id_producto > 2340";
+String ssql3 = "UPDATE empleado SET comision = 0.15 WHERE puesto = 'Representante Ventas'";
+String ssql4 = "DROP TABLE temp_ventas";
+```
+
+
+### Ejecución de sentencias y Objeto Resultset
+
+En función del tipo de sentencia que se quiera ejecutar, las opciones son las siguientes:
+
+* executeQuery(ssql) :	Devuelve un objeto ResultSet. (Sentencias SELECT)
+* executeUpdate(ssql):	Devuele un int = número de filas afectadas ( adecuado para sentencias que no develven datos (DDL) o sentencias INSERT, DELETE y UPDATE).
+* Execute(ssql):Devuelve un boolean, se puede utilizar para cualquier tiempo de sentencia SQL
+	    * false : Si no devuelven resultados o sólo número de filas afectadas (int totreg = sent.getUpdateCount();)
+	    * true  : Sentencias SELECT
+
+```java8
+
+// PASO 4: Ejecución de la sentencia
+
+ResultSet rs = stmt.executeQuery(ssql1);
+
+int resultado2 = stmt.executeUpdate(ssql2);
+int resultado3 = stmt.executeUpdate(ssql3);
+int resultado4 = stmt.executeUpdate(ssql4);
+
+```
+El objeto ResultSet, es equivalente a una colección, se puede recorrer con un iterador y dispone del método
+.next() para para comprobar si hay más registros y obtener el siguiente registro.
+Cada elemento del resultset disponde de tantos valores como campos tenga el registro resultado.
+
+Se puede acceder a los campos , por el nombre que tienen en la tabla o por un índice que comienza en 0.
+
+```java8
+
+// PASO 5: Utilizar el ResultSet
+
+while (rs.next()){
+
+// ResultSet dispone de métodos get tipados para recuperar el valor de cada campo
+// id_empleado int, nombre varchar(32), salario double()
+
+	int _id = rs.getInt(0); // rs.getInt("id_empleado)
+	String _nombre = rs.getString(1) ; // rs.getString("nombre");
+	Double _salario = rs.getDouble(2) ; // rs.getDouble("salario");
+
+}
+
+```
+Al final de las operaciones , se deben cerrar todos los recursos utilizados
+
+```java8
+
+// PASOS 6,7,8: Liberar recursos
+
+rs.close();
+stmt.close();
+conn.close();
+
+```
+
+**En la carpeta ud10-db, se encuentra un proyecto ejemplo , así como unos ejercicios para practicar**
+
+### Enlaces de interés
+
+Existe muchísimas fuentes para ampliar conocimientos y mejorar el control de las bases de datos.
+
+* [JDBC Api oficial] (https://docs.oracle.com/javase/8/docs/api/java/sql/package-summary.html)
+
+* [JDBC Tutorial] (https://www.javatpoint.com/java-jdbc)
