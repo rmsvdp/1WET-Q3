@@ -234,7 +234,7 @@ y cargamos todos su datos (líneas) en nuestra estructura de objetos.
 * Las operaciones de actualizar y eliminar quedarían en memoria hasta que terminásemos la aplicación, momento en el que generaríamos un archivo nuevo con los datos de la sesión. 
 
 
-## Manejo de Bases de Datos :rocket:
+## Manejo de Bases de Datos (ud10-bd) :rocket:
 
 Desde un programa java se puede acceder a una base de datos y ejecutar cualquier sentencia que se
 ajuste al standard SQL.
