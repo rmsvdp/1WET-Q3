@@ -332,7 +332,7 @@ El objeto ResultSet, es equivalente a una colección, se puede recorrer con un i
 .next() para para comprobar si hay más registros y obtener el siguiente registro.
 Cada elemento del resultset disponde de tantos valores como campos tenga el registro resultado.
 
-Se puede acceder a los campos , por el nombre que tienen en la tabla o por un índice que comienza en 0.
+Se puede acceder a los campos , por el nombre que tienen en la tabla o por un índice **que comienza en 1**
 
 ```java8
 
@@ -343,9 +343,9 @@ while (rs.next()){
 // ResultSet dispone de métodos get tipados para recuperar el valor de cada campo
 // id_empleado int, nombre varchar(32), salario double()
 
-	int _id = rs.getInt(0); // rs.getInt("id_empleado)
-	String _nombre = rs.getString(1) ; // rs.getString("nombre");
-	Double _salario = rs.getDouble(2) ; // rs.getDouble("salario");
+	int _id = rs.getInt(1); // rs.getInt("id_empleado)
+	String _nombre = rs.getString(2) ; // rs.getString("nombre");
+	Double _salario = rs.getDouble(3) ; // rs.getDouble("salario");
 
 }
 
