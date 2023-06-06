@@ -21,7 +21,7 @@ La mecánica recomendada es :
 * Revisar ejemplos o realizar ejercicios
 
 Para que esto sea realmente productivo, aprovecha la potencia del trabajo en equipo, forma grupos con 
-tus compañeros y entre todo id construyendo 
+tus compañeros y entre todos id construyendo las soluciones. 
 
 ## En capítulos anteriores :alien:
 
@@ -32,7 +32,7 @@ En mi cuenta de gitHub hay proyectos operativos sobre ejemplos, ejercicios y uti
 Al final, cualquier aplicación relevante maneja información de forma persistente, es decir, la información se crea, modifica y elimina 
 durante la ejecución de la aplicaicón, pero cuando esta termina, debe quedar almacenada de alguna forma.
 
-En tiempo de ejecución , podemos adpotar una estrategia común a casi cualquier programa al que nos 
+En tiempo de ejecución , podemos adoptar una estrategia común a casi cualquier programa al que nos 
 enfrentemos:
 
 1. Inicializar el sistema y al información base
@@ -41,7 +41,7 @@ enfrentemos:
 4. Salvar la información de forma periódica
 5. Terminar la aplicación
 
-Hasta que no veamos lectura y escritura en ficheros,pasaremos por alto los puntos 2 y 4 
+Hasta que no veamos lectura y escritura en ficheros, pasaremos por alto los puntos 2 y 4. 
 
 ### Trabajar en memoria con la información
 
@@ -59,7 +59,7 @@ cada clase, realizar la implementación. Por ejemplo
 
 public interface DAO{
     public void addCoche(Coche c);		// Añadidmos un coche nuevo
-    public void updateCoche(Coche _old, Coche _new); // actualizamos los datos de un coche con los de otro
+    public void updateCoche(Coche _old, Coche _new); // Actualizamos los datos de un coche con los de otro
     public boolean deleteCoche(Coche c); // Elimino un coche
     public Coche findCoche(String clave); // Recupero un coche a partir de su matrícula
     public ArrayList<Coche> getCoches(); // REcupero todos los coches almacenados
@@ -88,7 +88,7 @@ La clase principal para recorrer un sistema de archivos es FILE, y proporciona l
 
 ## Lectura y escritura de ficheros (ud9-fi) :rocket:
 
-Un fichero en general almacena una secuencia de bytes, en función de su organización , se podrá 
+Un fichero en general, almacena una secuencia de bytes. En función de su organización , se podrá 
 interpretar como texto, datos numéricos y/o estructuras de datos complejas.
 Los archivos que se pueden 'leer' se conocen como archivos de texto, contienen esencialmente caracteres del alfabeto,
 símbolos de puntuación,números y caracteres especiales.
